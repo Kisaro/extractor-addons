@@ -62,6 +62,13 @@ ThkoelnExtractor.extract = function(query) {
             r.setWeight(100);
             ThkoelnExtractor.results.push(r);
           }
+          if(ThkoelnExtractor.results.length === 0) {
+            var r = new Result('No food today :(');
+            r.setDescription('The canteen of '+mensaName+' might be closed.');
+            r.setWeight(100);
+            ThkoelnExtractor.results.push(r);
+          }
+          App.renderResults();
         });
   }
 };

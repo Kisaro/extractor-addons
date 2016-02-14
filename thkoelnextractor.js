@@ -110,3 +110,5 @@ ThkoelnExtractor.pushMensaSelection = function() {
   };
   ThkoelnExtractor.results.push(gmmensa);
 }
+
+module.exports = ThkoelnExtractor;

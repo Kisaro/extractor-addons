@@ -10,7 +10,6 @@ GoogleExtractor.recentQuery = '';
 GoogleExtractor.init = function() {
   GoogleExtractor.request = require('request');
   GoogleExtractor.lastTimestamp = Date.now();
-	//var config = require('./config');
   GoogleExtractor.apiKey = 'AIzaSyCasRAkjoz_jV0M3NHgRlKHlNrpKUOcjM4';//config.google.apiKey;
 }
 
@@ -53,3 +52,5 @@ GoogleExtractor.lookup = function(query) {
         GoogleExtractor.lookup(query);
       }, GoogleExtractor.cooldown+1);
 }
+
+module.exports = GoogleExtractor;

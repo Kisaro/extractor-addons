@@ -10,25 +10,12 @@ This optional repository contains the following extractors:
 - **ThkoelnExtractor**: Currently extracts canteen menus of certain cologne universities (TH Köln: Deutz-IWZ,Gummersbach and Universität Köln: UniMensa)
 
 ## Installation
-Please make sure to have [Extractor](https://github.com/Kisaro/extractor#installation) readily installed.
-The following commands assume that you are currently within the extractor main directory:
+Installation of additional extractors is easy as pie!
+Just make sure you have [Extractor](https://github.com/Kisaro/extractor#installation) already installed/cloned somewhere.
+
+Next you clone this repository
 ```bash
-cd js/
-git clone https://github.com/Kisaro/extractor-addons.git .
+git clone https://github.com/Kisaro/extractor-addons.git
 ```
-Next you will need to edit ```<extractor_root>/index.html``` and add a new ```<script>``` tag for each extractor you want to use, before ```<extractor_root>/js/app.js``` is included.
-```html
-    <script type="text/javascript" src="js/mathextractor.js"></script>
-    <script type="text/javascript" src="js/fileextractor.js"></script>
-    
-    <script type="text/javascript" src="js/newextractor.js"></script> <!-- <- add this line -->
-    
-    <script type="text/javascript" src="js/app.js"></script>
-```
-Finally, the new extractors are initialized by adding the following line in the init-function of ```<extractor_root>/js/app.js``` for each extractor (replace NewExtractor with the actual name):
-```javascript
-		App.extractors.push(MathExtractor);
-		App.extractors.push(FileExtractor);
-		
-		App.extractors.push(NewExtractor); // <- add this line
-```
+And copy any extractor you like inside the ```<ExtractorMainFolder>/js/``` directory.
+Extractor will pick them up automatically on start!

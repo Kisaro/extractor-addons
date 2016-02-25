@@ -6,9 +6,9 @@ ThkoelnExtractor.init = function() {
 };
 ThkoelnExtractor.extract = function(query) {
   ThkoelnExtractor.results = [];
-  if(query.toLowerCase() === 'mensa') {
+  if(query.toLowerCase() === 'mensa' || query.toLowerCase() === 'canteen') {
     ThkoelnExtractor.pushMensaSelection();
-  } else if(query.substr(0, 6) === 'mensa ' && query.length > 6) {
+  } else if((query.substr(0, 6) === 'mensa ' || query.substr(0, 6) === 'canteen ') && query.length > 6) {
     var mensa = query.substr(6);
     var mensaName = '';
     switch(mensa) {
@@ -27,9 +27,10 @@ ThkoelnExtractor.extract = function(query) {
       var r = new Result('Not a valid mensa');
       r.setDescription('Press enter to list valid mensas');
       r.action = function() {
-        App.search.value = 'mensa';
+        App.search.value = 'canteen';
         App.triggerSearchEvent();
       }
+      r.setWeight(100);
       this.results.push(r);
     }
     else
@@ -76,7 +77,7 @@ ThkoelnExtractor.extract = function(query) {
 ThkoelnExtractor.pushMensaSelection = function() {
   var unimensa = new Result('UniMensa');
   unimensa.setDescription('Display menu for' + unimensa.getTitle());
-  unimensa.setWeight = 100;
+  unimensa.setWeight(100);
   unimensa.action = function() {
     App.search.value = 'mensa uni';
     App.triggerSearchEvent();
@@ -85,7 +86,7 @@ ThkoelnExtractor.pushMensaSelection = function() {
 
   var iwzmensa = new Result('Mensa IWZ Deutz');
   iwzmensa.setDescription('Display menu for ' + iwzmensa.getTitle());
-  iwzmensa.setWeight = 100;
+  iwzmensa.setWeight(100);
   iwzmensa.action = function() {
     App.search.value = 'mensa iwz';
     App.triggerSearchEvent();
@@ -94,7 +95,7 @@ ThkoelnExtractor.pushMensaSelection = function() {
 
   var suedstadtmensa = new Result('Mensa Südstadt');
   suedstadtmensa.setDescription('Display menu for ' + suedstadtmensa.getTitle());
-  suedstadtmensa.setWeight = 100;
+  suedstadtmensa.setWeight(100);
   suedstadtmensa.action = function() {
     App.search.value = 'mensa suedstadt';
     App.triggerSearchEvent();
@@ -103,7 +104,7 @@ ThkoelnExtractor.pushMensaSelection = function() {
 
   var gmmensa = new Result('Mensa Gummersbach');
   gmmensa.setDescription('Display menu for ' + gmmensa.getTitle());
-  gmmensa.setWeight = 100;
+  gmmensa.setWeight(100);
   gmmensa.action = function() {
     App.search.value = 'mensa gm';
     App.triggerSearchEvent();
